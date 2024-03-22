@@ -1,0 +1,75 @@
+variables:
+	readonly: a variable whose value cant be changed
+	unset: to set the value to null
+	while assigning a variable value to its name make sure there are no spaces in between the equal sign and content
+	
+	$0: filename
+	$1..9: arguments after the filename
+	$#: no of arguments
+	$*: all the arguments that are double quoted
+	$@: all the arguments individually quoted
+	$?: exit status of last command
+	$$: process no of the current shell, also called pid of the script
+
+loops:
+	for variable in w1 w2 ... wn
+	do	
+		...write here...
+	done
+
+
+    while condition
+    do 
+    ..write here...
+    done
+    
+    until command
+    do
+        ..write here..
+    done
+
+    increementing loop variant: 
+        a=`expr $a + 1`
+    nesting of loops
+
+conditional statements:
+    if [ condition ] #condition is usually given in `expr statement`
+    then
+        ....write here...
+    elif [ condition ]
+    then 
+        ...write here...
+    else
+        ...write here...
+    fi
+
+functions:
+
+fucntionname() {
+    ...write here...
+    $1 $2 .. $n used to acces each parameter followed by the function name in the invoking fn call
+    we can only return a number from a function usually an exit status
+}
+
+fucntionname param1 param2 ... paramn
+
+Other important findings --->
+using (()):
+eg:
+    sum=0
+    for i in $*:
+    do
+        ((sum+=i)) #autoincreement in an easy way using (())
+    done
+
+Arrays:
+    to initialise an array :
+        a=()
+        to add elements
+        a+=(i) #where i is the item
+
+        to access an element we use "${a[i]}"
+        to access all elements we use "${a[@]}"
+        to read an input of string into an array we can use -a flag
+        read -a array_name
+    
